@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import api from "../api/axios";
 
-const CreateTodo = () => {
+const CreateTodo = ({ getTodo }) => {
   const [todo, setTodo] = useState("");
 
   const changeInputHandler = (e) => {
@@ -12,6 +12,7 @@ const CreateTodo = () => {
     e.preventDefault();
     try {
       await api.post("/todos", { todo });
+      getTodo();
       setTodo("");
     } catch {
       alert("잠시 후 다시 시도해주세요");
