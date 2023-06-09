@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import CreateTodo from "./CreateTodo";
 import { useNavigate } from "react-router-dom";
 import api from "../../api/axios";
@@ -14,6 +14,7 @@ const Todo = () => {
       try {
         const data = await api.get("todos");
         setTodoList(data.data);
+        console.log(data.data);
       } catch {
         alert("잠시후 다시 시도해주세요");
       }
@@ -22,7 +23,7 @@ const Todo = () => {
     }
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     getTodo();
   }, [token]);
 
