@@ -1,9 +1,17 @@
 import api from "../api/axios";
 import { useNavigate } from "react-router-dom";
 import useInput from "../hooks/useInput";
+import { useLayoutEffect } from "react";
 
 const Signup = () => {
   const navigate = useNavigate();
+  const token = localStorage.getItem("access_token");
+
+  useLayoutEffect(() => {
+    if (token) {
+      navigate("/todo");
+    }
+  }, [token]);
 
   const { changeInputHandler, valid, user } = useInput();
 
