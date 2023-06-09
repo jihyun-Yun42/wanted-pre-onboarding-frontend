@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import api from "../api/axios";
+import api from "../../api/axios";
 
 const EditTodo = ({ item, setTodoList }) => {
   const [edit, setEdit] = useState(false);
