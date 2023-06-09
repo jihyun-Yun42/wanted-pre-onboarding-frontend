@@ -38,16 +38,20 @@ const Signup = () => {
           value={user.email}
           onChange={changeInputHandler}
         />
+        <br />
         {valid.email || <span>이메일 형식에 맞게 입력해주세요</span>}
       </label>
 
+      <br />
       <input
         data-testid="password-input"
         name="password"
         value={user.password}
         onChange={changeInputHandler}
       />
+      <br />
       {valid.password || <span>8자 이상 입력해주세요</span>}
+      <br />
       <button data-testid="signup-button" disabled={!valid.email || !valid.password}>
         회원가입
       </button>
